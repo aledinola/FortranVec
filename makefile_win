@@ -1,0 +1,31 @@
+# Select Compiler
+COMPILER =  ifx
+
+SWITCH =  /O3 /fast /Qmkl /Qopenmp /Qparallel 
+#SWITCH = /Qmkl /Qopenmp /warn:all /check:all /traceback /heap-arrays0 
+#GARBAGE = /fast /Qparallel /Qipo /Qprec-div- /QxHost  /heap-arrays0
+
+SRCS =src\mod_utilities.f90 src\main.f90
+	
+EXEC = exe\run_win.exe
+
+ifort:
+	$(COMPILER) -fpp $(SWITCH) $(SRCS) -o $(EXEC) 
+	
+# Cleaning everything
+
+clean:
+	del *.mod
+	del *.obj
+	del *.pdb
+	del *.ilk
+	del $(EXEC)
+
+#To compile in Mac, type:
+# $ make -f makefile_mac
+
+#To compile in Windows, type:
+# $ nmake /f makefile_win
+# option flag /heap-arrays0
+# to store all arrays on the heap
+# see https://community.intel.com/t5/Intel-Fortran-Compiler/allocatable-automatic-stack-heap/m-p/1229091#M152713
