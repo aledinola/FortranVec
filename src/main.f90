@@ -157,8 +157,8 @@ module mod_vfi
     EV = matmul(v,transpose(z_tran))
 
     ! Step through the state space
-    !$omp parallel if (par_fortran==1) default(shared) private(z_c,a_c,a_val,z_val,&
-    !$ ap_ind,ap_c,cons,v_temp)
+    !$omp parallel if (par_fortran==1) default(shared) & 
+    !$ private(z_c,a_c,a_val,z_val,ap_ind,ap_c,cons,v_temp)
     !$omp do collapse(2)
     do z_c=1,n_z
         do a_c=1,n_a
