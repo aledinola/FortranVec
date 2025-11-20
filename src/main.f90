@@ -253,7 +253,7 @@ program main
     write(*,*) "Starting program..."
     
     ! ---------------------- Set numerical parameters ----------------------!
-    method      = 1       ! 0: loop-based, 1: vectorized, 2: vectorized2
+    method      = 0       ! 0: loop-based, 1: vectorized, 2: vectorized2
     verbose     = 1       ! If 1, print iteration info
     par_fortran = 0       ! If 1, parallelize with OpenMP
     tol         = 1.0d-6  ! Tolerance for VFI
